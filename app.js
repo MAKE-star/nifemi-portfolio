@@ -64,18 +64,24 @@ const D = {
   s3n: '14%', s3l: 'LinkedIn growth in 2 months',
   s4n: '100%', s4l: 'Record accuracy maintained',
 
-  k_e: '04 / Capabilities', k_h1: 'Every system,', k_h2: 'every detail.',
+  k_e: '05 / Capabilities', k_h1: 'Every system,', k_h2: 'every detail.',
   k_lead: 'From the executive inbox to HR pipelines and vendor deliverables, I build the quiet machinery that keeps a business moving — documented, repeatable and calm under pressure.',
 
-  t_e: '05 / Testimonials', t_h1: 'Kind words', t_h2: 'from clients.',
+  lk_e: '04 / Links', lk_h1: 'Project', lk_h2: 'links.',
+  lk_hint: 'A library of real deliverables and samples. Links open in a new tab.',
 
-  e_e: '06 / Background', e_h1: 'Training &', e_h2: 'credentials.',
+  t_e: '06 / Reviews', t_h1: 'Client', t_h2: 'reviews.',
+
+  e_e: '07 / Background', e_h1: 'Training &', e_h2: 'credentials.',
   cert_h: 'Certifications',
+  cert_hint: 'Tap a certificate with an image to view it full size.',
 
-  c_e: '07 / Contact', c_h1: 'Let us make work', c_h2: 'run smoothly.',
+  c_e: '08 / Contact', c_h1: 'Let us make work', c_h2: 'run smoothly.',
   c_p: 'Open to Executive Assistant, Operations and HR roles — remote, worldwide.',
   ph: '+234 814 469 3622',
   em: 'oluwanifemikujebe@gmail.com',
+  li: 'https://www.linkedin.com/in/oluwanifemi-kujebe/',
+  li_l: 'Connect on LinkedIn',
 };
 
 /* list-type defaults rendered as repeatable items; each gets a numeric id list */
@@ -138,7 +144,13 @@ const LISTS = {
     { h: 'Outreach & Content', items: ['Lead generation & outreach', 'LinkedIn content strategy', 'Social media management', 'Graphic design', 'Research & reporting'] },
   ],
 
-  tools: ['Google Workspace', 'Microsoft Office', 'Canva', 'ClickUp', 'Slack', 'Asana', 'Notion', 'Trello', 'Calendly', 'Zoom', 'Microsoft Teams', 'Airtable', 'Dropbox', 'Mailchimp', 'Miro', 'Grammarly'],
+  // each tool: { n: name, img: optional logo URL }
+  tools: [
+    { n: 'Google Workspace' }, { n: 'Microsoft Office' }, { n: 'Canva' }, { n: 'ClickUp' },
+    { n: 'Slack' }, { n: 'Asana' }, { n: 'Notion' }, { n: 'Trello' }, { n: 'Calendly' },
+    { n: 'Zoom' }, { n: 'Microsoft Teams' }, { n: 'Airtable' }, { n: 'Dropbox' },
+    { n: 'Mailchimp' }, { n: 'Miro' }, { n: 'Grammarly' }, { n: 'Zeffy' },
+  ],
 
   tms: [
     { h: 'Dedicated and intelligent', q: 'Nifemi is an exceptional and outstanding individual. I have had the pleasure of working with her and have been consistently impressed by her dedication, intelligence and friendly demeanor. She brings innovation and a strong work ethic to the table.', b: 'Paul, Educational Enthusiast' },
@@ -152,19 +164,51 @@ const LISTS = {
     'Virtual Assistant Programme, ALX Africa (August – October 2024)',
     'B.Ed Christian Religious Studies, University of Lagos (January 2021 – present)',
   ],
+  // each cert: { txt: label, img: optional image URL (tap to view), l: optional link }
   cert: [
-    'ALX Virtual Assistant Certification (October 2024)',
-    'Asana Workflow Specialist Certification (awarded March 2026)',
+    { txt: 'ALX Virtual Assistant Certification (October 2024)' },
+    { txt: 'Asana Workflow Specialist Certification (awarded March 2026)' },
   ],
 
   // selected work gallery (graphics design etc.) — tap to enlarge, arrows to scroll
+  // each work: { t, d, imgs:[urls], l: optional link }
   works: [
     { t: 'Calendar Management', d: 'Managing schedules with Google Calendar, Outlook, Notion and Calendly: prioritizing appointments, setting reminders and optimizing time for clients and teams.' },
     { t: 'Email Management', d: 'Organizing, prioritizing and responding to email with labels and clear follow-ups so correspondence stays timely with minimal delays.' },
     { t: 'Workflow & Project Management', d: 'Trello and Asana boards for a social content calendar and a 30-day campaign; implemented a workflow system that cut task completion time by 30%.' },
     { t: 'Meeting Agendas', d: 'Clear, time-conscious agendas that support team coordination, keep meetings productive and give every session a purpose.' },
     { t: 'Graphic Design', d: 'Product ads and promotional flyers designed in Canva — from food brands to beauty businesses.' },
-    { t: 'Certificates', d: 'ALX Virtual Assistant certification and the Asana Workflow Specialist certificate.' },
+  ],
+
+  // project links section (mirrors her old portfolio) — grouped links, open in new tab
+  // each group: { h: heading, items: [{ t: label, l: url }] }
+  links: [
+    { h: 'SOPs', items: [
+      { t: 'ClickUp SOP for Account Managers and Operations Team', l: '' },
+      { t: 'ProtonPass SOP', l: '' },
+      { t: 'HR and Talent SOP', l: '' },
+    ] },
+    { h: 'Data Entry', items: [
+      { t: 'Sales Data Consolidation and Organization', l: '' },
+    ] },
+    { h: 'Email Sample Templates', items: [
+      { t: 'Follow up Emails', l: '' },
+      { t: 'Welcome Emails', l: '' },
+      { t: 'Meeting Confirmation Emails', l: '' },
+    ] },
+    { h: 'Travel and Itinerary Management', items: [
+      { t: 'Travel Pack', l: '' },
+      { t: 'Blue Fin Restaurant Reservation', l: '' },
+    ] },
+    { h: 'Research Work', items: [
+      { t: 'Research 1', l: '' }, { t: 'Research 2', l: '' }, { t: 'Research 3', l: '' },
+      { t: 'Research 4', l: '' }, { t: 'Research 5', l: '' }, { t: 'Research 6', l: '' },
+    ] },
+    { h: 'Social Media Management', items: [
+      { t: 'Content Calendar and Baseline Audit', l: '' },
+      { t: 'Tools and Budget Proposal', l: '' },
+      { t: 'TikTok Content Strategy', l: '' },
+    ] },
   ],
 };
 
@@ -272,7 +316,7 @@ const dataUrlToBlob = async (dataUrl) => (await fetch(dataUrl)).blob();
 function render() {
   const exp = list('exp'), ka = list('ka'), caps = list('caps'),
     tools = list('tools'), tms = list('tms'), edu = list('edu'),
-    cert = list('cert'), works = list('works');
+    cert = list('cert'), works = list('works'), links = list('links');
 
   const li = (arr, path) => arr.map((v, i) =>
     `<li data-list="${path}" data-i="${i}"><span data-k="${path}.${i}">${esc(v)}</span>${delBtn()}</li>`).join('');
@@ -298,8 +342,29 @@ function render() {
       <div class="ch">${c.items.map((it, j) => `<span class="chip" data-list="caps.${i}.items" data-i="${j}"><span data-k="caps.${i}.items.${j}">${esc(it)}</span>${delBtn()}</span>`).join('')}${addBtn('caps.' + i + '.items', '+ skill')}</div>
     </div>`).join('');
 
-  const toolsHtml = tools.map((v, i) =>
-    `<span class="chip" data-list="tools" data-i="${i}"><span data-k="tools.${i}">${esc(v)}</span>${delBtn()}</span>`).join('');
+  const toolsHtml = tools.map((v, i) => {
+    const name = typeof v === 'string' ? v : (v.n || '');
+    const img = typeof v === 'object' ? v.img : '';
+    return `<span class="chip tool" data-list="tools" data-i="${i}">
+      <span class="toolimg" data-toolimg="${i}">${img ? `<img src="${esc(img)}" alt="">` : `<span class="toolph">${esc((name[0] || '?').toUpperCase())}</span>`}</span>
+      <span data-k="tools.${i}.n">${esc(name)}</span>${delBtn()}</span>`;
+  }).join('');
+
+  const linksHtml = links.map((g, i) => `
+    <div class="lkgroup rv" data-list="links" data-i="${i}">
+      ${delBtn()}
+      <h4 data-k="links.${i}.h">${esc(g.h)}</h4>
+      <div class="lkitems">
+        ${(g.items || []).map((it, j) => `
+          <div class="lkitem" data-list="links.${i}.items" data-i="${j}">
+            ${okUrl(it.l) ? `<a href="${esc(it.l)}" target="_blank" rel="noopener" class="lka"><span data-k="links.${i}.items.${j}.t">${esc(it.t)}</span> <span class="lkext">↗</span></a>`
+              : `<span class="lka lkna"><span data-k="links.${i}.items.${j}.t">${esc(it.t)}</span></span>`}
+            ${editing ? `<input class="lkurl" data-lkurl="${i}.${j}" placeholder="https://link (opens in new tab)" value="${esc(it.l || '')}">` : ''}
+            ${delBtn()}
+          </div>`).join('')}
+      </div>
+      ${addBtn('links.' + i + '.items', 'Add link')}
+    </div>`).join('');
 
   const tmsHtml = tms.map((m, i) => `
     <div class="c rv" data-list="tms" data-i="${i}">
@@ -309,7 +374,7 @@ function render() {
       <div class="by mono" data-k="tms.${i}.b">${esc(m.b)}</div>
     </div>`).join('');
 
-  const mq = tools.map(x => `<span>${esc(x)}</span>`).join('');
+  const mq = tools.map(x => `<span>${esc(typeof x === 'string' ? x : (x.n || ''))}</span>`).join('');
 
   document.getElementById('app').innerHTML = `
   <section id="home" class="dark" data-sec="home"><div class="wrap hgrid">
@@ -353,19 +418,38 @@ function render() {
     </div>
     <p class="whint">${E('w_hint')}</p>
     <div class="wrail" id="wrail">
-      ${works.map((w, i) => `
+      ${works.map((w, i) => {
+        const imgs = workImgs(w);
+        const cover = imgs[0];
+        const thumbs = imgs.map((src, j) =>
+          `<div class="wthumb${j === 0 ? ' sel' : ''}" data-wthumb="${i}" data-j="${j}"><img src="${esc(src)}" alt="">${editing ? `<button class="wtdel" data-wimgdel="${i}" data-j="${j}" title="Remove image">×</button>` : ''}</div>`).join('');
+        return `
         <div class="wc${i === 0 ? ' active' : ''}" data-wc="${i}" data-list="works" data-i="${i}">
           ${delBtn()}
-          <div class="wi" data-wi="${i}">${w.img ? `<img src="${w.img}" alt="">` : '<span class="mono">Tap to add image</span>'}</div>
+          <div class="wi" data-wi="${i}">
+            ${cover ? `<img class="wcover" data-wcover="${i}" src="${esc(cover)}" alt="">` : '<span class="mono">Tap to add image</span>'}
+            ${imgs.length > 1 ? `<span class="wcount mono">${imgs.length} images</span>` : ''}
+          </div>
           <div class="wb">
             <h4 data-k="works.${i}.t">${esc(w.t)}</h4>
             <p data-k="works.${i}.d">${esc(w.d)}</p>
+            ${imgs.length ? `<div class="wthumbs">${thumbs}</div>` : ''}
+            ${editing ? `<button class="btn secAdd wimgadd" data-wimgadd="${i}" style="display:inline-flex;margin-top:10px">+ Add image</button>` : ''}
             ${okUrl(w.l) ? `<a class="wl" href="${esc(w.l)}" target="_blank" rel="noopener">View work →</a>` : ''}
             <div class="wedit"><input data-wl="${i}" placeholder="Link (optional)" value="${esc(w.l || '')}"></div>
           </div>
-        </div>`).join('')}
+        </div>`;
+      }).join('')}
     </div>
     ${addBtn('works', 'Add a work')}
+  </div></section>
+
+  <section id="links" class="light2" data-sec="links"><div class="wrap">
+    <span class="eyebrow mono">${E('lk_e')}</span>
+    <h2 class="rv">${E('lk_h1')} <em>${E('lk_h2')}</em></h2>
+    <p class="whint" style="margin-bottom:30px">${E('lk_hint')}</p>
+    <div class="lkgrid">${linksHtml}</div>
+    ${addBtn('links', 'Add link group')}
   </div></section>
 
   <section class="dark" data-sec="stats" style="padding:0"><div class="sg">
@@ -401,7 +485,26 @@ function render() {
     ${edu.map((v, i) => `<div class="er rv" data-list="edu" data-i="${i}" style="position:relative">${delBtn()}<span data-k="edu.${i}">${esc(v)}</span></div>`).join('')}
     ${addBtn('edu', 'Add training')}
     <span class="eyebrow mono" style="margin-top:48px">${E('cert_h')}</span>
-    ${cert.map((v, i) => `<div class="er rv" data-list="cert" data-i="${i}" style="position:relative">${delBtn()}<span data-k="cert.${i}">${esc(v)}</span></div>`).join('')}
+    <p class="whint" style="margin:8px 0 4px">${E('cert_hint')}</p>
+    ${cert.map((c, i) => {
+      const txt = typeof c === 'string' ? c : (c.txt || '');
+      const img = typeof c === 'object' ? c.img : '';
+      const link = typeof c === 'object' ? c.l : '';
+      const viewable = !!img;
+      return `<div class="er cert${viewable ? ' viewable' : ''} rv" data-list="cert" data-i="${i}" ${viewable ? `data-certimg="${i}"` : ''} style="position:relative">
+        ${delBtn()}
+        <span class="certrow">
+          <span data-k="cert.${i}.txt">${esc(txt)}</span>
+          ${viewable ? '<span class="certview mono">View certificate ↗</span>' : ''}
+          ${okUrl(link) ? `<a class="certlink mono" href="${esc(link)}" target="_blank" rel="noopener">Open link ↗</a>` : ''}
+        </span>
+        ${editing ? `<span class="certedit">
+          <button class="btn secAdd certimgadd" data-certimgadd="${i}" style="display:inline-flex">${img ? 'Replace image' : '+ Add image'}</button>
+          ${img ? `<button class="btn certimgdel" data-certimgdel="${i}">Remove image</button>` : ''}
+          <input class="lkurl" data-certurl="${i}" placeholder="Link (optional, opens new tab)" value="${esc(link || '')}">
+        </span>` : ''}
+      </div>`;
+    }).join('')}
     ${addBtn('cert', 'Add certification')}
   </div></section>
 
@@ -414,16 +517,29 @@ function render() {
       <a class="btn fill" id="hire2" href="mailto:${esc(t('em'))}">${E('em')}</a>
       <a class="btn" id="dl2" href="#">${E('rs_l')}</a>
     </div>
+    <div class="btns" style="justify-content:center;margin-top:14px">
+      <a class="btn" id="li1" href="${esc(t('li'))}" target="_blank" rel="noopener">${E('li_l')}</a>
+    </div>
   </div></section>
 
   <footer class="mono">© ${new Date().getFullYear()} ${esc(t('fn'))} ${esc(t('ln'))}</footer>`;
 
   wire();
   applyAll();
-  if (editing) setEdit(true); // re-apply contenteditable after re-render
+  // re-apply contentEditable after a re-render (without recursing into setEdit/render)
+  if (editing) {
+    document.body.classList.add('editing');
+    document.querySelectorAll('[data-k]').forEach(e => (e.contentEditable = 'true'));
+  }
 }
 
 const okUrl = u => /^https?:\/\//i.test(u || '');
+/* normalize a work item's images into an array (supports the old single `img`) */
+function workImgs(w) {
+  if (Array.isArray(w.imgs)) return w.imgs.filter(Boolean);
+  if (w.img) return [w.img];
+  return [];
+}
 const delBtn = () => `<button class="itemDel" title="Delete" aria-label="Delete">×</button>`;
 const addBtn = (path, label) => `<button class="btn secAdd" data-add="${path}">+ ${esc(label)}</button>`;
 
@@ -513,10 +629,40 @@ function wireWork() {
   cards.forEach(card => {
     card.addEventListener('click', e => {
       if (editing) return; // in edit mode clicks go to image/link controls
-      if (e.target.closest('.wedit') || e.target.closest('.itemDel')) return;
+      if (e.target.closest('.wedit') || e.target.closest('.itemDel') ||
+          e.target.closest('.wthumb') || e.target.closest('.wcover')) return;
       cards.forEach(c => c.classList.remove('active'));
       card.classList.add('active');
       card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    });
+  });
+
+  // thumbnail click: swap the cover image (in view mode); in edit mode, delete is handled elsewhere
+  rail.querySelectorAll('.wthumb').forEach(th => {
+    th.addEventListener('click', e => {
+      if (e.target.closest('.wtdel')) return;      // delete handled in wireEditingDom
+      const wi = +th.dataset.wthumb, j = +th.dataset.j;
+      const imgs = workImgs(list('works')[wi]);
+      const cover = th.closest('.wc').querySelector('.wcover');
+      if (cover && imgs[j]) {
+        cover.src = imgs[j];
+        th.closest('.wc').querySelectorAll('.wthumb').forEach(x => x.classList.remove('sel'));
+        th.classList.add('sel');
+      }
+    });
+  });
+
+  // cover click: open the full gallery in the lightbox (view mode only)
+  rail.querySelectorAll('.wcover').forEach(cov => {
+    cov.addEventListener('click', e => {
+      if (editing) return;
+      e.stopPropagation();
+      const wi = +cov.dataset.wcover;
+      const imgs = workImgs(list('works')[wi]);
+      // start from whichever thumb is currently selected
+      const selThumb = cov.closest('.wc').querySelector('.wthumb.sel');
+      const start = selThumb ? +selThumb.dataset.j : 0;
+      if (imgs.length) openLightbox(imgs, start);
     });
   });
 
@@ -532,6 +678,35 @@ function wireWork() {
   rail.addEventListener('scroll', upd, { passive: true });
   setTimeout(upd, 50);
 }
+
+/* ============================================================================
+   LIGHTBOX — view work galleries + certificates full size
+   ========================================================================== */
+let lbImgs = [], lbIdx = 0;
+function openLightbox(imgs, start) {
+  lbImgs = imgs.filter(Boolean); if (!lbImgs.length) return;
+  lbIdx = Math.max(0, Math.min(start || 0, lbImgs.length - 1));
+  lbRender(); $('lightbox').classList.add('show');
+}
+function closeLightbox() { $('lightbox').classList.remove('show'); lbImgs = []; }
+function lbRender() {
+  $('lbimg').src = lbImgs[lbIdx] || '';
+  const multi = lbImgs.length > 1;
+  $('lbprev').style.display = multi ? '' : 'none';
+  $('lbnext').style.display = multi ? '' : 'none';
+  $('lbcount').textContent = multi ? `${lbIdx + 1} / ${lbImgs.length}` : '';
+}
+function lbStep(d) { if (!lbImgs.length) return; lbIdx = (lbIdx + d + lbImgs.length) % lbImgs.length; lbRender(); }
+$('lbclose').onclick = closeLightbox;
+$('lbprev').onclick = () => lbStep(-1);
+$('lbnext').onclick = () => lbStep(1);
+$('lightbox').addEventListener('click', e => { if (e.target.id === 'lightbox') closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!$('lightbox').classList.contains('show')) return;
+  if (e.key === 'Escape') closeLightbox();
+  else if (e.key === 'ArrowLeft') lbStep(-1);
+  else if (e.key === 'ArrowRight') lbStep(1);
+});
 
 /* ============================================================================
    STYLING / THEME
@@ -555,11 +730,17 @@ function applyAll() { Object.keys(S.st).forEach(applyStyle); applyTheme(); }
    EDIT MODE
    ========================================================================== */
 function setEdit(on) {
+  const was = editing;
   editing = on;
   document.body.classList.toggle('editing', on);
+  if (on) populateFontMenu();
+  // re-render so the editor-only controls (add-image, cert/link inputs, etc.)
+  // appear/disappear — they are conditionally built into the markup.
+  if (was !== on) {
+    render();  // render() calls wire(); contentEditable is set below after DOM exists
+  }
   document.querySelectorAll('[data-k]').forEach(e => (e.contentEditable = on ? 'true' : 'false'));
   bar();
-  if (on) populateFontMenu();
 }
 function bar() {
   const b = $('edbar');
@@ -598,8 +779,12 @@ document.addEventListener('input', e => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Enter' && e.target.dataset && e.target.dataset.k && editing) {
     const k = e.target.dataset.k;
-    // allow newlines in long paragraphs/quotes; block for short single-line fields
-    if (!/\b(q|d|ab1|ab2|k_lead|c_p)\b/.test(k) && !/items\.\d+$/.test(k) && !/^(ka|edu|cert)\./.test(k)) e.preventDefault();
+    // allow newlines in long paragraphs/quotes + exp/caps bullet lists + plain ka/edu;
+    // block Enter for short single-line fields (titles, tool names, cert labels, link labels)
+    const multiline = /\b(q|d|ab1|ab2|k_lead|c_p)\b/.test(k)
+      || /^(exp|caps)\.\d+\.items\.\d+$/.test(k)
+      || /^(ka|edu)\.\d+$/.test(k);
+    if (!multiline) e.preventDefault();
   }
 });
 
@@ -608,6 +793,9 @@ function setListField(path, val) {
   const seg = path.split('.');
   const key = seg[0];
   const arr = list(key); // ensures override exists
+  // migrate legacy primitives to the object shapes used now
+  if (key === 'cert' && typeof arr[+seg[1]] === 'string') arr[+seg[1]] = { txt: arr[+seg[1]] };
+  if (key === 'tools' && typeof arr[+seg[1]] === 'string') arr[+seg[1]] = { n: arr[+seg[1]] };
   let node = arr;
   for (let i = 1; i < seg.length - 1; i++) {
     const s = seg[i];
@@ -621,29 +809,91 @@ function setListField(path, val) {
 /* generic add / delete + photo + work handlers */
 function wireEditingDom() {
   const app = $('app');
+
+  // view-mode: open a certificate image in the lightbox
+  app.querySelectorAll('.cert.viewable').forEach(row => {
+    row.addEventListener('click', e => {
+      if (editing) return;
+      if (e.target.closest('.certlink') || e.target.closest('.certedit')) return;
+      const i = +row.dataset.certimg;
+      const c = list('cert')[i];
+      const img = typeof c === 'object' ? c.img : '';
+      if (img) openLightbox([img], 0);
+    });
+  });
+
   app.onclick = e => {
     if (!editing) return;
     const add = e.target.closest('[data-add]');
     if (add) { e.preventDefault(); addItem(add.dataset.add); return; }
+    // per-image delete inside a work card
+    const wimgdel = e.target.closest('[data-wimgdel]');
+    if (wimgdel) { e.preventDefault(); delWorkImg(+wimgdel.dataset.wimgdel, +wimgdel.dataset.j); return; }
+    // add image to a work card (append)
+    const wimgadd = e.target.closest('[data-wimgadd]');
+    if (wimgadd) { e.preventDefault(); workTarget = +wimgadd.dataset.wimgadd; $('wfile').click(); return; }
+    // cert image add / remove
+    const certadd = e.target.closest('[data-certimgadd]');
+    if (certadd) { e.preventDefault(); certTarget = +certadd.dataset.certimgadd; $('cfile').click(); return; }
+    const certdel = e.target.closest('[data-certimgdel]');
+    if (certdel) { e.preventDefault(); delCertImg(+certdel.dataset.certimgdel); return; }
+    // tool image
+    const timg = e.target.closest('[data-toolimg]');
+    if (timg) { e.preventDefault(); toolTarget = +timg.dataset.toolimg; $('tfile').click(); return; }
+    // generic item delete
     const del = e.target.closest('.itemDel');
     if (del) { e.preventDefault(); const host = del.closest('[data-list]'); if (host) delItem(host.dataset.list, +host.dataset.i); return; }
+    // empty work image placeholder -> add first image
     const wi = e.target.closest('[data-wi]');
-    if (wi) { workTarget = +wi.dataset.wi; $('wfile').click(); return; }
+    if (wi && !e.target.closest('.wcover')) { workTarget = +wi.dataset.wi; $('wfile').click(); return; }
     const ph = e.target.closest('#ph');
     if (ph) { $('file').click(); return; }
   };
+
   app.addEventListener('change', e => {
-    const i = e.target.dataset && e.target.dataset.wl;
-    if (i === undefined) return;
-    const works = list('works'); const w = works[+i];
-    let v = e.target.value.trim(); if (v && !/^https?:\/\//i.test(v)) v = 'https://' + v;
-    w.l = okUrl(v) ? v : ''; setList('works', works); render();
+    const ds = e.target.dataset || {};
+    // work link
+    if (ds.wl !== undefined) {
+      const works = list('works'); const w = works[+ds.wl];
+      let v = e.target.value.trim(); if (v && !/^https?:\/\//i.test(v)) v = 'https://' + v;
+      w.l = okUrl(v) ? v : ''; setList('works', works); render(); return;
+    }
+    // link-item url  (data-lkurl="g.j")
+    if (ds.lkurl !== undefined) {
+      const [g, j] = ds.lkurl.split('.').map(Number);
+      const links = list('links'); const it = links[g].items[j];
+      let v = e.target.value.trim(); if (v && !/^https?:\/\//i.test(v)) v = 'https://' + v;
+      it.l = okUrl(v) ? v : ''; setList('links', links); render(); return;
+    }
+    // certificate url
+    if (ds.certurl !== undefined) {
+      const cert = list('cert'); const i = +ds.certurl;
+      if (typeof cert[i] === 'string') cert[i] = { txt: cert[i] };
+      let v = e.target.value.trim(); if (v && !/^https?:\/\//i.test(v)) v = 'https://' + v;
+      cert[i].l = okUrl(v) ? v : ''; setList('cert', cert); render(); return;
+    }
   });
+
   // focus to select element for styling
   document.addEventListener('focusin', e => {
     if (!editing) return; const k = e.target.dataset && e.target.dataset.k;
     if (k) { sel = k; syncTool(); }
   });
+}
+
+/* remove one image from a work card's gallery */
+function delWorkImg(wi, j) {
+  const works = list('works');
+  const imgs = workImgs(works[wi]);
+  imgs.splice(j, 1);
+  works[wi].imgs = imgs; delete works[wi].img;    // migrate to array form
+  setList('works', works); render(); toast('Image removed.');
+}
+/* remove a certificate's image */
+function delCertImg(i) {
+  const cert = list('cert');
+  if (typeof cert[i] === 'object') { delete cert[i].img; }
+  setList('cert', cert); render(); toast('Certificate image removed.');
 }
 
 /* ADD a blank item that mirrors the section's template */
@@ -652,11 +902,13 @@ function addItem(path) {
   if (path === 'exp') { const a = list('exp'); a.push({ t: 'Role title', c: 'Company · Location', d: 'Dates', s: 'Current', items: ['What you did and the impact.'] }); setList('exp', a); }
   else if (path === 'ka') { const a = list('ka'); a.push('A new achievement.'); setList('ka', a); }
   else if (path === 'caps') { const a = list('caps'); a.push({ h: 'New group', items: ['New skill'] }); setList('caps', a); }
-  else if (path === 'tools') { const a = list('tools'); a.push('New tool'); setList('tools', a); }
+  else if (path === 'tools') { const a = list('tools'); a.push({ n: 'New tool', img: '' }); setList('tools', a); }
   else if (path === 'tms') { const a = list('tms'); a.push({ h: 'Headline', q: 'What the client said about working with you.', b: 'Name, Role' }); setList('tms', a); }
   else if (path === 'edu') { const a = list('edu'); a.push('New training or degree (dates).'); setList('edu', a); }
-  else if (path === 'cert') { const a = list('cert'); a.push('New certification (date).'); setList('cert', a); }
-  else if (path === 'works') { const a = list('works'); a.push({ t: 'Project title', d: 'A short description of the project and your role.', img: '', l: '' }); setList('works', a); }
+  else if (path === 'cert') { const a = list('cert'); a.push({ txt: 'New certification (date).', img: '', l: '' }); setList('cert', a); }
+  else if (path === 'works') { const a = list('works'); a.push({ t: 'Project title', d: 'A short description of the project and your role.', imgs: [], l: '' }); setList('works', a); }
+  else if (path === 'links') { const a = list('links'); a.push({ h: 'New group', items: [{ t: 'New link', l: '' }] }); setList('links', a); }
+  else if (/^links\.\d+\.items$/.test(path)) { const a = list('links'); a[+seg[1]].items.push({ t: 'New link', l: '' }); setList('links', a); }
   else if (/^exp\.\d+\.items$/.test(path)) { const a = list('exp'); a[+seg[1]].items.push('New point.'); setList('exp', a); }
   else if (/^caps\.\d+\.items$/.test(path)) { const a = list('caps'); a[+seg[1]].items.push('New skill'); setList('caps', a); }
   render(); toast('Added.');
@@ -693,7 +945,8 @@ $('file').onchange = e => {
   };
   im.src = URL.createObjectURL(f);
 };
-/* ---- work image upload ---- */
+/* ---- work image upload (APPENDS to the card's gallery) ---- */
+let certTarget = null, toolTarget = null;
 $('wfile').onchange = e => {
   const f = e.target.files[0]; e.target.value = ''; if (!f || workTarget === null) return;
   const im = new Image();
@@ -703,10 +956,52 @@ $('wfile').onchange = e => {
     c.getContext('2d').drawImage(im, (900 - w) / 2, (560 - h) / 2, w, h);
     const dataUrl = c.toDataURL('image/jpeg', .82);
     const idx = workTarget;
-    const url = await cloudUpload('work-' + idx + '.jpg', await dataUrlToBlob(dataUrl), 'image/jpeg');
-    const works = list('works'); works[idx].img = url || dataUrl;
+    const name = 'work-' + idx + '-' + Date.now() + '.jpg';
+    const url = await cloudUpload(name, await dataUrlToBlob(dataUrl), 'image/jpeg');
+    const works = list('works');
+    const imgs = workImgs(works[idx]);
+    imgs.push(url || dataUrl);
+    works[idx].imgs = imgs; delete works[idx].img;   // migrate to array form
     setList('works', works); render();
     toast(url ? 'Image added — live for everyone.' : 'Image added on this device.');
+  };
+  im.src = URL.createObjectURL(f);
+};
+/* ---- certificate image upload (keeps original aspect, max 1400px) ---- */
+$('cfile').onchange = e => {
+  const f = e.target.files[0]; e.target.value = ''; if (!f || certTarget === null) return;
+  const im = new Image();
+  im.onload = async () => {
+    const max = 1400, r = Math.min(1, max / Math.max(im.width, im.height));
+    const c = document.createElement('canvas'); c.width = im.width * r; c.height = im.height * r;
+    c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+    const dataUrl = c.toDataURL('image/jpeg', .85);
+    const idx = certTarget;
+    const url = await cloudUpload('cert-' + idx + '-' + Date.now() + '.jpg', await dataUrlToBlob(dataUrl), 'image/jpeg');
+    const cert = list('cert');
+    if (typeof cert[idx] === 'string') cert[idx] = { txt: cert[idx] };
+    cert[idx].img = url || dataUrl;
+    setList('cert', cert); render();
+    toast(url ? 'Certificate image added — live for everyone.' : 'Certificate image added on this device.');
+  };
+  im.src = URL.createObjectURL(f);
+};
+/* ---- tool logo upload (square template, 160px) ---- */
+$('tfile').onchange = e => {
+  const f = e.target.files[0]; e.target.value = ''; if (!f || toolTarget === null) return;
+  const im = new Image();
+  im.onload = async () => {
+    const c = document.createElement('canvas'); c.width = c.height = 160;
+    const s = Math.min(im.width, im.height);
+    c.getContext('2d').drawImage(im, (im.width - s) / 2, (im.height - s) / 2, s, s, 0, 0, 160, 160);
+    const dataUrl = c.toDataURL('image/png');
+    const idx = toolTarget;
+    const url = await cloudUpload('tool-' + idx + '-' + Date.now() + '.png', await dataUrlToBlob(dataUrl), 'image/png');
+    const tools = list('tools');
+    if (typeof tools[idx] === 'string') tools[idx] = { n: tools[idx] };
+    tools[idx].img = url || dataUrl;
+    setList('tools', tools); render();
+    toast(url ? 'Tool logo added — live for everyone.' : 'Tool logo added on this device.');
   };
   im.src = URL.createObjectURL(f);
 };
@@ -765,6 +1060,20 @@ function openLogin() { $('login').classList.add('show'); const em = $('lgEmail')
 function closeLogin() { $('login').classList.remove('show'); $('lgErr').textContent = ''; }
 $('ownerKey').onclick = () => { if (authed) { setEdit(!editing); } else openLogin(); };
 $('lgCancel').onclick = closeLogin;
+
+/* extra ways to reach sign-in (the dot is intentionally subtle):
+   - press Shift + E anywhere
+   - open the site with #edit in the URL, e.g. .../#edit  */
+document.addEventListener('keydown', e => {
+  if (e.shiftKey && (e.key === 'E' || e.key === 'e') &&
+      !/^(input|textarea)$/i.test(e.target.tagName) && !e.target.isContentEditable) {
+    if (authed) setEdit(!editing); else openLogin();
+  }
+});
+if (location.hash.toLowerCase() === '#edit') {
+  // open after boot so the modal exists
+  setTimeout(() => { if (!authed) openLogin(); }, 300);
+}
 $('lgGo').onclick = tryLogin;
 $('lgEmail').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
 
