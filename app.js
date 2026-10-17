@@ -345,9 +345,11 @@ function render() {
   const toolsHtml = tools.map((v, i) => {
     const name = typeof v === 'string' ? v : (v.n || '');
     const img = typeof v === 'object' ? v.img : '';
-    return `<span class="chip tool" data-list="tools" data-i="${i}">
-      <span class="toolimg" data-toolimg="${i}">${img ? `<img src="${esc(img)}" alt="">` : `<span class="toolph">${esc((name[0] || '?').toUpperCase())}</span>`}</span>
-      <span data-k="tools.${i}.n">${esc(name)}</span>${delBtn()}</span>`;
+    return `<div class="tool" data-list="tools" data-i="${i}">
+      ${delBtn()}
+      <div class="toolimg" data-toolimg="${i}">${img ? `<img src="${esc(img)}" alt="${esc(name)} logo">` : `<span class="toolph">${esc((name[0] || '?').toUpperCase())}</span>`}</div>
+      <div class="toolname" data-k="tools.${i}.n">${esc(name)}</div>
+    </div>`;
   }).join('');
 
   const linksHtml = links.map((g, i) => `
@@ -467,7 +469,11 @@ function render() {
     </div>
     <div class="tk">${capCards}</div>
     ${addBtn('caps', 'Add capability group')}
-    <div class="ka rv" style="margin-top:56px"><span class="eyebrow mono">Tools</span><div class="ch" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">${toolsHtml}${addBtn('tools', '+ tool')}</div></div>
+    <div class="toolsWrap rv" style="margin-top:64px">
+      <span class="eyebrow mono">Tools I work with</span>
+      <div class="toolgrid">${toolsHtml}</div>
+      ${addBtn('tools', 'Add tool')}
+    </div>
   </div></section>
 
   <section class="dark" data-sec="tm"><div class="wrap">

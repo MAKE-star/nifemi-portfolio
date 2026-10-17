@@ -130,12 +130,18 @@ h1 .l2{display:block;font-weight:600;font-style:italic;color:var(--gold)}
 .wthumb:hover{opacity:1}
 .wtdel{position:absolute;top:1px;right:1px;width:18px;height:18px;border-radius:50%;border:none;background:#b0413e;color:#fff;font-size:12px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0}
 
-/* tools with logos */
-.chip.tool{display:inline-flex;align-items:center;gap:8px;padding:6px 13px 6px 6px;position:relative}
-.toolimg{width:26px;height:26px;border-radius:6px;overflow:hidden;background:#14213a12;display:grid;place-items:center;flex:0 0 auto}
-.toolimg img{width:100%;height:100%;object-fit:cover}
-.toolph{font-family:var(--serif);font-size:14px;color:var(--acc2)}
-body.editing .chip.tool .toolimg{outline:1px dashed var(--acc2);cursor:pointer}
+/* tools — big logo grid */
+.toolgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:28px 20px;margin-top:26px}
+@media(max-width:600px){.toolgrid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:22px 14px}}
+.tool{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.toolimg{width:84px;height:84px;border-radius:18px;overflow:hidden;background:#fff;display:grid;place-items:center;box-shadow:0 6px 18px #14213a14;border:1px solid #14213a12;transition:transform .25s,box-shadow .25s}
+@media(max-width:600px){.toolimg{width:66px;height:66px;border-radius:14px}}
+.tool:hover .toolimg{transform:translateY(-4px);box-shadow:0 14px 30px #14213a24}
+.toolimg img{width:100%;height:100%;object-fit:contain;padding:14px}
+.toolph{font-family:var(--serif);font-size:34px;color:var(--acc2)}
+.toolname{font-size:15px;color:var(--ink);font-weight:500}
+body.editing .toolimg{outline:2px dashed var(--acc2);outline-offset:2px;cursor:pointer}
+body.editing .tool .itemDel{top:-6px;right:50%;transform:translateX(50%) translateX(44px)}
 
 /* project links section */
 .lkgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px 44px}
