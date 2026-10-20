@@ -324,6 +324,7 @@ function render() {
   const expHtml = exp.map((r, i) => `
     <div class="ms rv" data-list="exp" data-i="${i}">
       ${delBtn()}
+      ${moveBtns()}
       <div class="no">0${i + 1}</div>
       <div>
         <h3 data-k="exp.${i}.t">${esc(r.t)}</h3>
@@ -548,6 +549,12 @@ function workImgs(w) {
 }
 const delBtn = () => `<button class="itemDel" title="Delete" aria-label="Delete">×</button>`;
 const addBtn = (path, label) => `<button class="btn secAdd" data-add="${path}">+ ${esc(label)}</button>`;
+/* up/down reorder controls for an item inside a list (editor only) */
+const moveBtns = () =>
+  `<span class="itemMove">
+    <button class="moveBtn moveUp" data-move="up" title="Move up" aria-label="Move up">↑</button>
+    <button class="moveBtn moveDown" data-move="down" title="Move down" aria-label="Move down">↓</button>
+  </span>`;
 
 /* ============================================================================
    WIRING (runs after every render)
@@ -846,6 +853,9 @@ function wireEditingDom() {
     // tool image
     const timg = e.target.closest('[data-toolimg]');
     if (timg) { e.preventDefault(); toolTarget = +timg.dataset.toolimg; $('tfile').click(); return; }
+    // generic item reorder (up/down)
+    const mv = e.target.closest('.moveBtn');
+    if (mv) { e.preventDefault(); const host = mv.closest('[data-list]'); if (host) moveItem(host.dataset.list, +host.dataset.i, mv.dataset.move); return; }
     // generic item delete
     const del = e.target.closest('.itemDel');
     if (del) { e.preventDefault(); const host = del.closest('[data-list]'); if (host) delItem(host.dataset.list, +host.dataset.i); return; }
@@ -920,6 +930,25 @@ function addItem(path) {
   render(); toast('Added.');
 }
 
+/* MOVE an item up or down within its list, by dotted path + index.
+   Works for any list (exp, works, caps, ka, …) and for nested item lists
+   like exp.0.items, because it resolves the same dotted path delItem does. */
+function moveItem(path, i, dir) {
+  const seg = path.split('.');
+  const key = seg[0];
+  const a = list(key);
+  // resolve down to the array that actually holds the item
+  let node = a;
+  for (let s = 1; s < seg.length; s++) node = Array.isArray(node) ? (node[+seg[s]] ?? node[seg[s]]) : node[seg[s]];
+  const arr = node;
+  if (!Array.isArray(arr)) return;
+  const j = dir === 'up' ? i - 1 : i + 1;
+  if (j < 0 || j >= arr.length) return;           // already at an edge
+  [arr[i], arr[j]] = [arr[j], arr[i]];            // swap neighbours
+  setList(key, a); render();
+  toast('Moved ' + (dir === 'up' ? 'up' : 'down') + '.');
+}
+
 /* DELETE an item from a list by dotted path + index */
 function delItem(path, i) {
   const seg = path.split('.');
@@ -957,10 +986,14 @@ $('wfile').onchange = e => {
   const f = e.target.files[0]; e.target.value = ''; if (!f || workTarget === null) return;
   const im = new Image();
   im.onload = async () => {
-    const c = document.createElement('canvas'); c.width = 900; c.height = 560;
-    const r = Math.max(900 / im.width, 560 / im.height), w = im.width * r, h = im.height * r;
-    c.getContext('2d').drawImage(im, (900 - w) / 2, (560 - h) / 2, w, h);
-    const dataUrl = c.toDataURL('image/jpeg', .82);
+    // Keep the WHOLE image: scale down to fit within 1600px on the long edge
+    // (no cropping). The card and lightbox both show it with object-fit:contain,
+    // so nothing gets cut off. Transparent canvas → PNG so there are no black bars.
+    const max = 1600, r = Math.min(1, max / Math.max(im.width, im.height));
+    const c = document.createElement('canvas');
+    c.width = Math.round(im.width * r); c.height = Math.round(im.height * r);
+    c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+    const dataUrl = c.toDataURL('image/jpeg', .85);
     const idx = workTarget;
     const name = 'work-' + idx + '-' + Date.now() + '.jpg';
     const url = await cloudUpload(name, await dataUrlToBlob(dataUrl), 'image/jpeg');
